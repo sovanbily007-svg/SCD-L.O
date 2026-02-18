@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="km">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>SCD L.O | ការិយាល័យមេធាវី</title>
+  <meta name="description" content="SCD L.O ការិយាល័យមេធាវី - មេធាវី Sous Chinda មានបទពិសោធន៍ ១៥ ឆ្នាំ។" />
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#0f1b33;
+      --text:#eaf0ff;
+      --muted:#b8c6e6;
+      --brand:#5aa7ff;
+      --border:rgba(255,255,255,.10);
+      --shadow: 0 20px 45px rgba(0,0,0,.45);
+      --radius: 18px;
+      --max: 1100px;
+      --pad: clamp(16px, 3vw, 28px);
+      --font: "Noto Sans Khmer", "Khmer OS", "Battambang", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:var(--font);
+      color:var(--text);
+      background:
+        radial-gradient(1000px 600px at 10% 0%, rgba(90,167,255,.18), transparent 60%),
+        radial-gradient(900px 500px at 90% 10%, rgba(255,255,255,.08), transparent 55%),
+        linear-gradient(180deg, #060b16 0%, var(--bg) 100%);
+      min-height:100vh;
+    }
+    a{color:inherit;text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding: 22px var(--pad) 60px;}
+    header{
+      position:sticky; top:0; z-index:10;
+      backdrop-filter:saturate(140%) blur(10px);
+      background: rgba(6,11,22,.55);
+      border-bottom:1px solid var(--border);
+    }
+    .nav{
+      max-width:var(--max); margin:0 auto; padding: 12px var(--pad);
+      display:flex; align-items:center; justify-content:space-between; gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:12px;
+      font-weight:700; letter-spacing:.2px;
+    }
+    .logo{
+      width:40px; height:40px; border-radius:12px;
+      background: linear-gradient(135deg, rgba(90,167,255,.95), rgba(90,167,255,.25));
+      box-shadow: 0 10px 25px rgba(90,167,255,.22);
+      display:grid; place-items:center;
+      border:1px solid rgba(255,255,255,.18);
+      font-weight:900;
+    }
+    .links{display:flex; gap:14px; flex-wrap:wrap; justify-content:flex-end}
+    .links a{
+      padding:8px 10px;
+      border-radius:999px;
+      color:var(--muted);
+    }
+    .links a:hover{background:rgba(255,255,255,.06); color:var(--text)}
+    .hero{
+      padding: 40px 0 18px;
+      display:grid; grid-template-columns: 1.15fr .85fr; gap: 22px;
+      align-items:stretch;
+    }
+    @media (max-width: 880px){ .hero{grid-template-columns:1fr} }
+    .card{
+      background: linear-gradient(180deg, rgba(15,27,51,.88), rgba(15,27,51,.70));
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      box-shadow: var(--shadow);
+      padding: clamp(18px, 3.2vw, 28px);
+      overflow:hidden;
+    }
+    h1{
+      margin:0 0 10px;
+      font-size: clamp(28px, 4vw, 42px);
+      line-height:1.12;
+      letter-spacing:-.2px;
+    }
+    .sub{
+      margin:0 0 18px;
+      color:var(--muted);
+      font-size: clamp(14px, 1.6vw, 16px);
+      line-height:1.8;
+    }
+    .badges{display:flex; flex-wrap:wrap; gap:10px; margin: 14px 0 22px}
+    .badge{
+      padding:10px 12px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      color:var(--muted);
+      font-size:13px;
+    }
+    .cta{display:flex; gap:12px; flex-wrap:wrap}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      gap:10px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      color: var(--text);
+      font-weight:800;
+    }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(90,167,255,.95), rgba(90,167,255,.55));
+      border-color: rgba(90,167,255,.65);
+      box-shadow: 0 12px 30px rgba(90,167,255,.18);
+    }
+    .btn:hover{transform: translateY(-1px)}
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 18px;
+    }
+    @media (max-width: 980px){ .grid{grid-template-columns:1fr} }
+    h2{ margin: 0 0 10px; font-size: 20px; }
+    .muted{color:var(--muted); line-height:1.8; margin:0}
+    .list{margin:0; padding-left: 18px; color:var(--muted); line-height:1.9}
+    .section{padding-top: 24px}
+    .kpi{ display:flex; gap:14px; flex-wrap:wrap; margin-top: 16px }
+    .kpi .pill{
+      flex: 1 1 150px;
+      padding: 14px 14px;
+      border-radius: 16px;
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.03);
+    }
+    .kpi .num{font-size:22px; font-weight:900; margin:0 0 2px}
+    .kpi .lbl{margin:0; color:var(--muted); font-size:13px}
+    footer{
+      margin-top: 34px;
+      padding-top: 18px;
+      border-top: 1px solid var(--border);
+      color: var(--muted);
+      font-size: 13px;
+      display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap;
+    }
+    .small{font-size:13px; color:var(--muted)}
+    .divider{height:1px; background:var(--border); margin:14px 0}
+
+    /* Hero picture */
+    .heroPic{
+      position:relative;
+      min-height: 360px;
+      display:grid;
+      place-items:center;
+    }
+    .heroPic::before{
+      content:"";
+      position:absolute; inset:0;
+      background:
+        radial-gradient(650px 420px at 30% 10%, rgba(90,167,255,.20), transparent 60%),
+        linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.01));
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+    }
+    .heroPicInner{
+      position:relative;
+      width:min(420px, 95%);
+      aspect-ratio: 4 / 3;
+      border-radius: 22px;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.12);
+      box-shadow: 0 18px 40px rgba(0,0,0,.35);
+      overflow:hidden;
+      display:grid;
+      place-items:center;
+    }
+    .caption{
+      position:absolute;
+      left:16px; right:16px; bottom:14px;
+      padding:10px 12px;
+      border-radius: 14px;
+      background: rgba(6,11,22,.55);
+      border:1px solid rgba(255,255,255,.12);
+      color: var(--muted);
+      font-size: 13px;
+      backdrop-filter: blur(10px);
+    }
+    /* Inputs */
+    input, textarea{
+      width:100%;
+      margin-top:6px;
+      padding:12px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.04);
+      color:var(--text);
+      font-family:var(--font);
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="nav">
+      <div class="brand">
+        <div class="logo">S</div>
+        <div>
+          <div style="font-size:14px; opacity:.95;">SCD L.O</div>
+          <div class="small">ការិយាល័យមេធាវី</div>
+        </div>
+      </div>
+      <nav class="links" aria-label="Primary">
+        <a href="#services">សេវាកម្ម</a>
+        <a href="#about">អំពីយើង</a>
+        <a href="#contact">ទំនាក់ទំនង</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="wrap">
+    <section class="hero">
+      <div class="card">
+        <h1>សេវាកម្មច្បាប់ប្រកបដោយវិជ្ជាជីវៈ និងអាចទុកចិត្តបាន</h1>
+        <p class="sub">
+          <strong>SCD L.O</strong> ផ្តល់ការពិគ្រោះ និងតំណាងផ្នែកច្បាប់ដោយផ្អែកលើដំណោះស្រាយជាក់ស្តែង
+          និងការប្រាស្រ័យទាក់ទងច្បាស់លាស់។ ដឹកនាំដោយ <strong>មេធាវី Sous Chinda</strong> មានបទពិសោធន៍
+          <strong>១៥ ឆ្នាំ</strong> ក្នុងវិស័យច្បាប់។
+        </p>
+
+        <div class="badges">
+          <div class="badge">បទពិសោធន៍ ១៥+ ឆ្នាំ</div>
+          <div class="badge">ផ្តោតលើអតិថិជន</div>
+          <div class="badge">សម្ងាត់ និងទំនុកចិត្ត</div>
+        </div>
+
+        <div class="cta">
+          <a class="btn primary" href="tel:092878687" aria-label="Call SCD L.O">
+            📞 ហៅទូរស័ព្ទ: 092 878 687
+          </a>
+          <a class="btn" href="#contact">
+            📩 កក់ពេលពិគ្រោះ
+          </a>
+        </div>
+
+        <div class="kpi" aria-label="Highlights">
+          <div class="pill">
+            <p class="num">15</p>
+            <p class="lbl">ឆ្នាំបទពិសោធន៍</p>
+          </div>
+          <div class="pill">
+            <p class="num">ឆាប់រហ័ស</p>
+            <p class="lbl">ការឆ្លើយតប និងដោះស្រាយ</p>
+          </div>
+          <div class="pill">
+            <p class="num">សម្ងាត់</p>
+            <p class="lbl">ការគ្រប់គ្រងព័ត៌មានអតិថិជន</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="card heroPic">
+        <div class="heroPicInner" aria-label="Professional law image">
+          <!-- Embedded SVG: scales of justice + courthouse (no external image needed) -->
+          <svg viewBox="0 0 800 600" width="100%" height="100%" role="img" aria-label="Scales of Justice Illustration">
+            <defs>
+              <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="rgba(90,167,255,0.9)"/>
+                <stop offset="1" stop-color="rgba(255,255,255,0.12)"/>
+              </linearGradient>
+              <linearGradient id="g2" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0" stop-color="rgba(255,255,255,0.18)"/>
+                <stop offset="1" stop-color="rgba(255,255,255,0.02)"/>
+              </linearGradient>
+            </defs>
+
+            <rect x="0" y="0" width="800" height="600" fill="url(#g2)"/>
+            <circle cx="160" cy="110" r="140" fill="rgba(90,167,255,0.16)"/>
+            <circle cx="680" cy="120" r="170" fill="rgba(255,255,255,0.06)"/>
+
+            <!-- Courthouse -->
+            <g opacity="0.9">
+              <rect x="170" y="300" width="460" height="220" rx="18" fill="rgba(15,27,51,0.55)" stroke="rgba(255,255,255,0.14)" stroke-width="3"/>
+              <polygon points="200,300 400,200 600,300" fill="rgba(90,167,255,0.18)" stroke="rgba(255,255,255,0.14)" stroke-width="3"/>
+              <rect x="230" y="330" width="80" height="170" rx="12" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.12)" stroke-width="2"/>
+              <rect x="360" y="330" width="80" height="170" rx="12" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.12)" stroke-width="2"/>
+              <rect x="490" y="330" width="80" height="170" rx="12" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.12)" stroke-width="2"/>
+              <rect x="370" y="380" width="60" height="120" rx="12" fill="rgba(90,167,255,0.10)" stroke="rgba(255,255,255,0.14)" stroke-width="2"/>
+            </g>
+
+            <!-- Scales of justice -->
+            <g transform="translate(400 115)" stroke="rgba(255,255,255,0.75)" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" fill="none">
+              <line x1="0" y1="10" x2="0" y2="200"/>
+              <line x1="-140" y1="60" x2="140" y2="60"/>
+              <line x1="-120" y1="60" x2="-180" y2="150"/>
+              <line x1="-120" y1="60" x2="-60" y2="150"/>
+              <path d="M -195 150 Q -120 210 -45 150" fill="rgba(90,167,255,0.10)"/>
+              <line x1="120" y1="60" x2="60" y2="150"/>
+              <line x1="120" y1="60" x2="180" y2="150"/>
+              <path d="M 45 150 Q 120 210 195 150" fill="rgba(90,167,255,0.10)"/>
+              <circle cx="0" cy="15" r="18" fill="url(#g1)" stroke="rgba(255,255,255,0.18)"/>
+            </g>
+          </svg>
+
+          <div class="caption">
+            SCD L.O • មេធាវី Sous Chinda • សេវាកម្មច្បាប់ប្រកបដោយទំនុកចិត្ត
+          </div>
+        </div>
+      </aside>
+    </section>
+
+    <section id="services" class="section">
+      <div class="card">
+        <h2>សេវាកម្ម</h2>
+        <p class="muted">អ្នកអាចកែសម្រួលបញ្ជីនេះឲ្យត្រូវតាមសេវាកម្មពិតរបស់ការិយាល័យ៖</p>
+
+        <div class="grid">
+          <div class="card" style="box-shadow:none;">
+            <h2 style="font-size:16px;margin:0 0 8px;">ពិគ្រោះ និងណែនាំច្បាប់</h2>
+            <ul class="list">
+              <li>ការពិគ្រោះយោបល់ និងយុទ្ធសាស្ត្រ</li>
+              <li>ពិនិត្យឯកសារ និងផ្តល់យោបល់</li>
+              <li>វាយតម្លៃហានិភ័យច្បាប់</li>
+            </ul>
+          </div>
+
+          <div class="card" style="box-shadow:none;">
+            <h2 style="font-size:16px;margin:0 0 8px;">កិច្ចសន្យា និងឯកសារ</h2>
+            <ul class="list">
+              <li>រៀបចំ/សរសេរកិច្ចសន្យា</li>
+              <li>លិខិតព្រមព្រៀង និងលិខិតផ្លូវការ</li>
+              <li>ការគាំទ្រផ្នែកគោរពតាមបទប្បញ្ញត្តិ</li>
+            </ul>
+          </div>
+
+          <div class="card" style="box-shadow:none;">
+            <h2 style="font-size:16px;margin:0 0 8px;">តំណាង និងដោះស្រាយវិវាទ</h2>
+            <ul class="list">
+              <li>ជួយចរចា និងប្រឹក្សាក្នុងជម្លោះ</li>
+              <li>រៀបចំឯកសារករណី</li>
+              <li>តំណាងអតិថិជន (តាមករណី)</li>
+            </ul>
+          </div>
+        </div>
+
+        <p class="small" style="margin-top:12px;">
+          *គេហទំព័រនេះមានគោលបំណងផ្តល់ព័ត៌មានទូទៅប៉ុណ្ណោះ មិនបង្កើតទំនាក់ទំនងមេធាវី-អតិថិជនដោយស្វ័យប្រវត្តិទេ។
+        </p>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="card">
+        <h2>អំពីយើង</h2>
+        <p class="muted">
+          <strong>SCD L.O</strong> ដឹកនាំដោយ <strong>មេធាវី Sous Chinda</strong> មានបទពិសោធន៍ <strong>១៥ ឆ្នាំ</strong>
+          ក្នុងវិស័យច្បាប់។ យើងផ្តោតលើការប្រាស្រ័យទាក់ទងច្បាស់លាស់ ការដោះស្រាយប្រកបដោយជាក់ស្តែង
+          និងការបម្រើអតិថិជនដោយគោរព និងទំនុកចិត្ត។
+        </p>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="card">
+        <h2>ទំនាក់ទំនង</h2>
+
+        <p class="muted"><strong>ទូរស័ព្ទ:</strong> <a href="tel:092878687">092 878 687</a></p>
+        <p class="muted"><strong>អ៊ីមែល:</strong> <a href="mailto:sous.chinda@gmail.com">sous.chinda@gmail.com</a></p>
+        <p class="muted"><strong>អាសយដ្ឋានការិយាល័យ:</strong> #46s ផ្លូវ២៦៥ សង្កាត់ទឹកល្អក់៣ ខណ្ឌទួលគោក រាជធានីភ្នំពេញ។</p>
+
+        <div class="divider"></div>
+
+        <!-- Simple contact form (mailto) -->
+        <p class="muted">បំពេញព័ត៌មានខាងក្រោម ដើម្បីស្នើសុំការពិគ្រោះ (ប្រើកម្មវិធីអ៊ីមែលនៅលើឧបករណ៍របស់អ្នក)៖</p>
+
+        <form action="mailto:sous.chinda@gmail.com" method="post" enctype="text/plain" style="margin-top:14px;">
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
+            <label class="small">
+              ឈ្មោះរបស់អ្នក<br />
+              <input name="name" required />
+            </label>
+            <label class="small">
+              លេខទូរស័ព្ទ<br />
+              <input name="phone" required />
+            </label>
+          </div>
+
+          <label class="small" style="display:block; margin-top:12px;">
+            សារ / បញ្ហាដែលចង់ពិគ្រោះ<br />
+            <textarea name="message" rows="5" required></textarea>
+          </label>
+
+          <div style="display:flex; gap:12px; flex-wrap:wrap; margin-top:14px;">
+            <button class="btn primary" type="submit" style="cursor:pointer;">ផ្ញើសំណើ</button>
+            <a class="btn" href="tel:092878687">ហៅទូរស័ព្ទឥឡូវ</a>
+            <a class="btn" href="mailto:sous.chinda@gmail.com">ផ្ញើអ៊ីមែល</a>
+          </div>
+
+          <p class="small" style="margin-top:10px;">
+            ចំណាំ៖ ប្រសិនបើអ្នកចង់បាន “Form” ដែលបញ្ជូនតាមអ៊ីនធឺណិត (មិនចាំបាច់បើកកម្មវិធីអ៊ីមែល)
+            ខ្ញុំអាចធ្វើជាប្រភេទ Google Form ឬ WhatsApp/Facebook link ដល់អ្នកបាន។
+          </p>
+        </form>
+
+        <footer>
+          <div>© <span id="yr"></span> SCD L.O — រក្សាសិទ្ធិគ្រប់យ៉ាង</div>
+          <div>មេធាវី: Sous Chinda | Tel: 092 878 687</div>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    document.getElementById("yr").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
